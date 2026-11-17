@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt" data-peek="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio Fernanda Monteiro</title>
+<meta name="description" content="Portfólio de Fernanda Monteiro: conteúdo para redes sociais, Reels, kits de imprensa e sites sob medida. Lisboa.">
+<meta property="og:title" content="Portfólio Fernanda Monteiro">
+<meta property="og:description" content="Conteúdo para redes, Reels, kits de imprensa, sites e design systems. Lisboa.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Reenie+Beanie&family=DM+Mono:wght@400;500&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: caderno de recortes em preto granulado. Fichas de papel inclinadas, fita adesiva, carimbos e anotação à mão.
+   Boldness lives in two places: the gothic "Portfólio" and the hover-to-translate ink swap. Everything else stays quiet. */
+:root{
+  --surface:#121110; --raised:#1e1c1a; --line:#3a3633; --ink:#ede6d8; --muted:#a39b8e;
+  --musgo:#4a5636; --musgo-t:#a7b283; --musgo-fundo:#232a1b;
+  --olive:#8c8547; --olive-t:#b9b27c;
+  --ox:#5b1f24; --ox-t:#d49a96;
+  --terra:#9a4e35; --terra-t:#db9a7e;
+  --prata:#b8babd; --osso:#ede6d8; --paper-ink:#1a1816; --paper-muted:#5e564c; --paper-line:#cfc6b5;
+  --fita:rgba(185,183,178,.85);
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --mao:"Reenie Beanie","Bradley Hand",cursive;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --gotica:"Pirata One","Newsreader",serif;
+  --shadow-colado:0 6px 14px rgba(0,0,0,.35);
+  --shadow-folha:0 18px 40px rgba(0,0,0,.45);
+  --gutter:clamp(18px,4vw,56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.09;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+:focus-visible{outline:2px solid var(--prata);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase}
+.mao{font-family:var(--mao);font-weight:400;line-height:1}
+
+/* ---------- i18n: both languages share one grid cell, so the box never jumps ---------- */
+.i{display:grid}
+.i>[lang]{grid-area:1/1;transition:opacity .32s ease,filter .32s ease,transform .32s ease}
+html[data-lang="pt"] .i>[lang="en"],html[data-lang="en"] .i>[lang="pt"]{opacity:0;visibility:hidden;filter:blur(4px);transform:translateY(3px)}
+@media (hover:hover) and (pointer:fine){
+  html[data-peek="on"][data-lang="pt"] :is(.i:hover,.pk:hover .i)>[lang="pt"],
+  html[data-peek="on"][data-lang="en"] :is(.i:hover,.pk:hover .i)>[lang="en"]{opacity:0;visibility:hidden;filter:blur(4px);transform:translateY(-3px)}
+  html[data-peek="on"][data-lang="pt"] :is(.i:hover,.pk:hover .i)>[lang="en"],
+  html[data-peek="on"][data-lang="en"] :is(.i:hover,.pk:hover .i)>[lang="pt"]{opacity:1;visibility:visible;filter:none;transform:none}
+  html[data-peek="on"] .pk:hover .i{text-decoration:underline dotted var(--terra-t) 1.5px;text-underline-offset:5px}
+  .touch-only{display:none!important}
+}
+@media (hover:none),(pointer:coarse){.hover-only{display:none!important}}
+
+
+/* small inline items swap by display, so chips and buttons fit each language */
+:is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i)>[lang]{display:none}
+html[data-lang="pt"] :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i)>[lang="pt"],html[data-lang="en"] :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i)>[lang="en"]{display:inline;opacity:1;visibility:visible;filter:none;transform:none}
+.nav a.i,.skills span.i,.chips span.i,.chip>.i{display:inline-block}
+.tl .yr.i{display:block}
+@media (hover:hover) and (pointer:fine){
+  html[data-peek="on"][data-lang="pt"] :is(.pk:hover :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i),:is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i):hover)>[lang="pt"],
+  html[data-peek="on"][data-lang="en"] :is(.pk:hover :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i),:is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i):hover)>[lang="en"]{display:none}
+  html[data-peek="on"][data-lang="pt"] :is(.pk:hover :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i),:is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i):hover)>[lang="en"],
+  html[data-peek="on"][data-lang="en"] :is(.pk:hover :is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i),:is(.nav a.i,.skills span.i,.chips span.i,.btn.i,.chip>.i,.tl .yr.i):hover)>[lang="pt"]{display:inline;opacity:1;visibility:visible;filter:none;transform:none}
+  html[data-peek="on"][data-lang="pt"] .pk:hover svg .pt,html[data-peek="on"][data-lang="en"] .pk:hover svg .en{display:none}
+  html[data-peek="on"][data-lang="pt"] .pk:hover svg .en,html[data-peek="on"][data-lang="en"] .pk:hover svg .pt{display:inline}
+}
+html[data-lang="pt"] svg .en,html[data-lang="en"] svg .pt{display:none}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:50;background:rgba(18,17,16,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.wm{font-style:italic;font-weight:600;font-size:28px;letter-spacing:-.01em;text-decoration:none;position:relative;white-space:nowrap;margin-right:auto}
+.wm .t{position:relative;display:inline-block}
+.wm .t i{position:absolute;left:50%;top:-.3em;transform:translateX(-46%);font-style:normal;font-size:.5em;color:var(--prata);line-height:1}
+.nav{display:flex;gap:22px}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--ink);border-color:var(--prata)}
+.ctrl{display:flex;align-items:center;gap:10px}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--raised)}
+.seg button{font:500 12px/1 var(--mono);letter-spacing:.1em;border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--osso);color:var(--paper-ink)}
+.peek{font:400 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:9px 12px;border-radius:999px;cursor:pointer}
+.peek[aria-pressed="true"]{color:var(--terra-t);border-color:var(--terra-t)}
+@media (max-width:860px){.nav{display:none}}
+@media (max-width:420px){.wm{font-size:23px}.seg button{padding:8px 10px}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(40px,7vw,96px) 0 clamp(36px,5vw,64px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,72px);align-items:center}
+.kicker{color:var(--muted);display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.kicker b{color:var(--prata);font-weight:400}
+.gotica{font-family:var(--gotica);font-weight:400;font-size:clamp(64px,11vw,156px);line-height:.82;letter-spacing:0;color:var(--osso);margin:0 0 18px -.03em;display:block}
+.gotica.i{display:grid}
+h1.lede{font-weight:600;font-size:clamp(30px,4.3vw,56px);line-height:1.06;letter-spacing:-.02em}
+h1.lede em{font-style:italic;font-weight:500;color:var(--terra-t)}
+.sub{max-width:34em;margin-top:22px;font-size:clamp(18px,1.7vw,21px);color:#d9d1c2}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{font:500 12.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:16px 22px;border-radius:3px;border:1.5px solid var(--osso);transition:transform .2s,background .2s,color .2s;display:inline-grid;cursor:pointer}
+.btn.solid{background:var(--osso);color:var(--paper-ink)}
+.btn.ghost{background:transparent;color:var(--osso)}
+.btn:hover{transform:translateY(-3px) rotate(-.6deg)}
+.btn.ghost:hover{background:var(--osso);color:var(--paper-ink)}
+.hint{margin-top:22px;font-family:var(--mao);font-size:28px;color:var(--terra-t);transform:rotate(-1.5deg);transform-origin:left;max-width:26em;line-height:1.05}
+
+.collage{position:relative;min-height:470px}
+.sheet{position:absolute;background:var(--osso);color:var(--paper-ink);box-shadow:var(--shadow-folha)}
+.sheet::before{content:"";position:absolute;top:-13px;left:50%;width:92px;height:26px;background:var(--fita);transform:translateX(-50%) rotate(-3deg)}
+.s1{left:2%;top:4%;width:62%;padding:26px 24px 22px;transform:rotate(-3deg);animation:drop .9s .1s both cubic-bezier(.2,.8,.2,1)}
+.s1 .big{font-weight:700;font-size:clamp(86px,11vw,138px);line-height:.9;letter-spacing:-.03em;display:block}
+.s1 .big sup{font-size:.4em;vertical-align:.9em;margin-left:2px}
+.s1 p{font-size:16px;line-height:1.3;color:var(--paper-muted);margin-top:10px}
+.s1 .mono{color:var(--paper-muted);font-size:11px}
+.s2{right:0;top:58%;width:48%;background:var(--musgo);color:var(--osso);padding:20px 20px 18px;transform:rotate(4deg);animation:drop .9s .25s both cubic-bezier(.2,.8,.2,1)}
+.s2 .num{font-weight:700;font-size:40px;line-height:1;display:block}
+.s2 p{font-size:15px;margin-top:6px;line-height:1.25}
+.s2::after{content:"✧ ✧ ✧ ✧ ✧ ✧";position:absolute;right:12px;top:10px;color:var(--prata);font-size:12px;letter-spacing:6px;opacity:.7;width:60px;line-height:1.6}
+.stamp{position:absolute;left:4%;bottom:2%;transform:rotate(-8deg);background:var(--musgo);color:var(--osso);border:2px solid var(--osso);padding:10px 16px;font:500 15px/1 var(--mono);letter-spacing:.14em;box-shadow:var(--shadow-colado);outline:2px solid var(--musgo);outline-offset:3px;animation:stampin .6s .8s both cubic-bezier(.3,1.6,.5,1)}
+.ticket{position:absolute;right:6%;bottom:-8%;transform:rotate(-4deg);background:var(--osso);color:var(--paper-ink);padding:12px 26px;font:400 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;box-shadow:var(--shadow-colado);
+  -webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+@keyframes drop{from{opacity:0;transform:translateY(-30px) rotate(0)}}
+@keyframes stampin{from{opacity:0;transform:scale(1.9) rotate(-18deg)}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.collage{min-height:400px;max-width:520px}}
+
+/* ---------- marquee ---------- */
+.brands{border-block:1px solid var(--line);background:var(--raised);overflow:hidden}
+.brands .lab{padding:14px var(--gutter) 0;max-width:1240px;margin:0 auto;color:var(--muted)}
+.track{display:flex;width:max-content;animation:run 38s linear infinite;padding:10px 0 16px}
+.track span{font-family:var(--mono);font-size:15px;letter-spacing:.16em;text-transform:uppercase;padding:0 22px;white-space:nowrap}
+.track span:nth-child(even){color:var(--prata)}
+.brands:hover .track{animation-play-state:paused}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- section heads ---------- */
+section{position:relative}
+.sec{padding:clamp(56px,8vw,112px) 0}
+.sh{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 40px;margin-bottom:34px}
+.sh h2{font-weight:600;font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-.025em;max-width:16em}
+.sh .mao{font-size:32px;color:var(--terra-t);transform:rotate(-2deg)}
+
+/* ---------- work ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px}
+.chip{font:400 12.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--line);padding:11px 16px;border-radius:999px;cursor:pointer;transition:all .2s;display:inline-flex;gap:8px;align-items:center}
+.chip:hover{color:var(--ink);border-color:var(--prata)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper-ink);border-color:var(--ink)}
+.chip small{font-size:11px;opacity:.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:52px 34px}
+.card{--r:-1deg;position:relative;background:var(--osso);color:var(--paper-ink);padding:14px 14px 20px;box-shadow:var(--shadow-colado);transform:rotate(var(--r));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;cursor:pointer;display:flex;flex-direction:column;gap:10px;animation:rise .6s both cubic-bezier(.2,.8,.2,1);animation-delay:calc(var(--n,0)*70ms)}
+.card::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;background:var(--fita);transform:translateX(-50%) rotate(calc(var(--r)*-2));z-index:2}
+.card:hover,.card:focus-within{transform:rotate(0) translateY(-10px);box-shadow:var(--shadow-folha)}
+.cover{aspect-ratio:400/260;overflow:hidden;background:var(--raised);clip-path:polygon(0 1.5%,3% 0,97% 1%,100% 0,99% 97%,100% 100%,2% 99%,0 100%)}
+.cover svg{display:block;width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .cover svg{transform:scale(1.06) rotate(.6deg)}
+.meta{display:flex;justify-content:space-between;gap:10px;color:var(--paper-muted);font-size:11px}
+.card h3{font-weight:700;font-size:23px;line-height:1.1;letter-spacing:-.015em}
+.card p.line{font-size:16px;line-height:1.35;color:var(--paper-muted)}
+.more{margin-top:auto;align-self:flex-start;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:none;border:0;border-bottom:1.5px solid var(--paper-ink);color:var(--paper-ink);padding:6px 0;cursor:pointer}
+.card:hover .more{color:var(--terra);border-color:var(--terra)}
+@keyframes rise{from{opacity:0;transform:translateY(34px) rotate(0)}}
+@media (min-width:980px){.card.big{grid-column:span 2;display:grid;grid-template-columns:1.25fr 1fr;gap:10px 22px;padding:16px;align-content:center}.card.big .more{margin-top:8px}.card.big .cover{grid-row:1/6;aspect-ratio:auto;min-height:340px}.card.big h3{font-size:32px;margin-top:6px}.card.big p.line{font-size:18px}}
+
+/* ---------- modal ---------- */
+.ov{position:fixed;inset:0;z-index:80;background:rgba(10,9,8,.82);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:18px;overflow-y:auto}
+.ov.on{display:flex;animation:fade .25s both}
+@keyframes fade{from{opacity:0}}
+.fold{position:relative;background:var(--osso);color:var(--paper-ink);width:min(780px,100%);max-height:calc(100vh - 36px);overflow:auto;padding:clamp(24px,4vw,44px);box-shadow:var(--shadow-folha);transform:rotate(-.6deg);animation:rise .45s both cubic-bezier(.2,.8,.2,1)}
+.fold::before{content:"";position:absolute;top:-2px;left:50%;width:110px;height:26px;background:var(--fita);transform:translateX(-50%) rotate(-3deg)}
+.fold .cover{aspect-ratio:400/260;width:min(100%,520px);margin-bottom:22px}
+.fold .cover svg{height:100%;width:100%}
+.fold .meta{margin-bottom:10px}
+.fold h3{font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+.fold p.desc{font-size:18px;line-height:1.6;max-width:36em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{font:400 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--paper-ink);padding:8px 11px;border-radius:999px}
+.fold .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.fold .btn.solid{background:var(--paper-ink);color:var(--osso);border-color:var(--paper-ink)}
+.x{position:absolute;right:14px;top:16px;z-index:3;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:var(--paper-ink);color:var(--osso);border:0;padding:10px 14px;border-radius:3px;cursor:pointer}
+
+/* ---------- services (paper section) ---------- */
+.paper{background:var(--osso);color:var(--paper-ink);clip-path:polygon(0 14px,5% 2px,12% 12px,21% 0,33% 10px,46% 1px,58% 12px,71% 2px,84% 11px,93% 0,100% 10px,100% calc(100% - 12px),94% 100%,82% calc(100% - 9px),70% calc(100% - 1px),55% calc(100% - 12px),41% 100%,29% calc(100% - 8px),15% calc(100% - 1px),6% calc(100% - 11px),0 100%);margin-top:-14px}
+.paper .sh .mao{color:var(--terra)}
+.srv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(28px,6vw,90px);align-items:start}
+.srv .intro{position:sticky;top:96px}
+.srv .intro p{margin-top:18px;color:var(--paper-muted);max-width:26em}
+.rows{border-bottom:1px solid var(--paper-line)}
+.row{display:grid;grid-template-columns:54px 1fr;gap:6px 16px;padding:26px 14px 26px 0;border-top:1px solid var(--paper-line);transition:background .25s,padding-left .25s}
+.row:hover{background:#e4dac5;padding-left:16px}
+.row .mono{color:var(--terra);padding-top:8px}
+.row h3{font-weight:700;font-size:27px;line-height:1.1;letter-spacing:-.015em}
+.row p{grid-column:2;color:var(--paper-muted);max-width:32em}
+.row .new{display:inline-block;font:500 10.5px/1 var(--mono);letter-spacing:.12em;background:var(--musgo);color:var(--osso);padding:5px 8px;margin-left:10px;vertical-align:4px;border-radius:2px}
+@media (max-width:860px){.srv{grid-template-columns:1fr}.srv .intro{position:static}}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px)}
+.about h2{font-weight:600;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.025em;margin-bottom:24px}
+.about h2 em{font-style:italic;font-weight:500;color:var(--musgo-t)}
+.about p{color:#d9d1c2;margin-bottom:16px;max-width:30em}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.skills span{font:400 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);padding:9px 12px;border-radius:999px;transition:all .2s;cursor:default}
+.skills span:hover{color:var(--ink);border-color:var(--musgo-t)}
+.tl{list-style:none;margin:0;padding:0 0 0 26px;border-left:1.5px dashed var(--line);display:grid;gap:30px}
+.tl li{position:relative}
+.tl li::before{content:"✧";position:absolute;left:-36px;top:-1px;font-size:18px;color:var(--prata);background:var(--surface);padding:2px 0}
+.tl .yr{color:var(--olive-t);display:block;margin-bottom:4px}
+.tl h3{font-weight:700;font-size:23px;line-height:1.15}
+.tl p{font-size:16.5px;color:var(--muted);margin:5px 0 0}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{background:var(--musgo-fundo);border-top:1px solid var(--line)}
+.contact h2{font-weight:600;font-size:clamp(34px,6.2vw,84px);line-height:.98;letter-spacing:-.03em;max-width:15em}
+.contact h2 em{font-style:italic;font-weight:500;color:var(--musgo-t)}
+.contact .p{margin-top:24px;color:#d9d1c2;max-width:28em}
+.contact .cta{margin-top:34px}
+.soc{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px}
+.soc a{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--prata);text-decoration:none;border-bottom:1px solid transparent}
+.soc a:hover{border-color:var(--prata)}
+footer{padding:26px 0 34px;border-top:1px solid var(--line);background:var(--musgo-fundo);color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="wm" href="#topo" aria-label="Fernanda Monteiro">Fernanda Monteiro</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#trabalhos" data-i="Trabalhos¦Work"></a>
+      <a href="#servicos" data-i="Serviços¦Services"></a>
+      <a href="#sobre" data-i="Sobre¦About"></a>
+      <a href="#contato" data-i="Contato¦Contact"></a>
+    </nav>
+    <div class="ctrl">
+      <div class="seg" role="group" aria-label="Idioma / Language">
+        <button type="button" id="b-pt" aria-pressed="true">PT</button>
+        <button type="button" id="b-en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="peek hover-only" id="b-peek" aria-pressed="true" title="Passe o cursor em um texto para ver a outra língua / Hover any text to see the other language">hover ✧ <span id="peek-s">on</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="topo">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="mono kicker"><b>✧</b> Fernanda Monteiro · Lisboa</p>
+      <span class="gotica i" data-i="Portfólio¦Portfolio"></span>
+      <h1 class="lede i" data-i="Planejo, <em>desenho</em>, edito e escrevo.¦I plan, <em>design</em>, edit and write."></h1>
+      <p class="sub i" data-i="Sou publicitária, moro em Lisboa e faço conteúdo e sites para restaurantes, cafés, padarias e marcas locais que não têm equipe criativa. Já dirigi a parte criativa de um estúdio e de uma empadaria.¦I’m an advertising professional based in Lisbon, and I make content and websites for restaurants, cafés, bakeries and local brands without a creative team. I’ve led the creative side of a studio and of a bakery."></p>
+      <div class="cta">
+        <a class="btn solid i" href="#trabalhos" data-i="Ver trabalhos¦See the work"></a>
+        <a class="btn ghost i" href="#contato" data-i="Falar comigo¦Get in touch"></a>
+      </div>
+      <p class="hint hover-only i" data-i="dica: passe o cursor em qualquer texto e leia em inglês ↗¦tip: hover any text to read it in Portuguese ↗"></p>
+      <p class="hint touch-only i" data-i="dica: o botão EN lá em cima troca o idioma ↑¦tip: the PT button up top switches language ↑"></p>
+    </div>
+    <div class="collage" aria-hidden="false">
+      <div class="sheet s1">
+        <span class="mono i" data-i="Neste portfólio¦In this portfolio"></span>
+        <span class="big"><span>13</span></span>
+        <p class="i" data-i="projetos, de kits de imprensa a design systems.¦projects, from press kits to design systems."></p>
+      </div>
+      <div class="sheet s2">
+        <span class="num">PT · EN</span>
+        <p class="i" data-i="português nativo, inglês fluente.¦native Portuguese, fluent English."></p>
+      </div>
+      <div class="stamp">APROVADO ✧</div>
+      <div class="ticket">turista onde mora</div>
+    </div>
+  </div>
+</section>
+
+<div class="brands" aria-label="Marcas e lugares">
+  <p class="mono lab i" data-i="Marcas e lugares no portfólio¦Brands and places in the portfolio"></p>
+  <div class="track" aria-hidden="true" id="track"></div>
+</div>
+
+<section class="sec" id="trabalhos">
+  <div class="wrap">
+    <div class="sh">
+      <h2 class="i" data-i="Treze projetos, do kit de imprensa ao site.¦Thirteen projects, from press kits to websites."></h2>
+      <span class="mao i" data-i="clica na ficha pra ver o que rolou¦click a card to see the full story"></span>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sec paper" id="servicos">
+  <div class="wrap">
+    <div class="srv">
+      <div class="intro">
+        <p class="mono" style="color:var(--terra)">✧ <span class="i" style="display:inline-grid" data-i="O que você recebe¦What you get"></span></p>
+        <h2 class="i" style="font-weight:600;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.025em;margin-top:12px" data-i="Eu faço, do calendário à legenda.¦I do it all, from calendar to caption."></h2>
+        <p class="i" data-i="Não entrego um plano e sumo. Planejo, fotografo, edito, desenho cada post no Canva e escrevo as legendas. Depois vejo como as pessoas reagiram e ajusto.¦I don’t hand over a strategy deck and disappear. I plan, shoot, edit, design every post in Canva and write the captions. Then I watch how people respond and adjust."></p>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="mono">01</span><h3 class="i" data-i="Calendário de conteúdo¦Content calendar"></h3><p class="i" data-i="Planejado em torno do seu cardápio, dos seus produtos e do seu público.¦Planned around your menu, your products and your audience."></p></div>
+        <div class="row"><span class="mono">02</span><h3 class="i" data-i="Posts, carrosséis e Reels¦Posts, carousels and Reels"></h3><p class="i" data-i="Criados, editados e prontos para publicar, com foto, vídeo e design feitos por mim.¦Designed, edited and ready to publish, with photo, video and design all done by me."></p></div>
+        <div class="row"><span class="mono">03</span><h3 class="i" data-i="Legendas na voz da marca¦Captions in your brand’s voice"></h3><p class="i" data-i="Em português ou em inglês, com opinião e sem clichê.¦In Portuguese or English, with a point of view and no clichés."></p></div>
+        <div class="row"><span class="mono">04</span><h3 class="i" data-i="Gestão de comunidade¦Community management"></h3><p class="i" data-i="Respostas, comentários e mensagens diretas.¦Replies, comments and DMs."></p></div>
+        <div class="row"><span class="mono">05</span><h3><span class="i" style="display:inline-grid" data-i="Sites sob medida¦Custom websites"></span></h3><p class="i" data-i="Identidade, texto e desenvolvimento, do zero, responsivo e no ar em poucos dias. Feito com Claude.¦Identity, copy and development from scratch, responsive and live in days. Built with Claude."></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sobre">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <p class="mono" style="color:var(--musgo-t);margin-bottom:12px">✧ <span class="i" style="display:inline-grid" data-i="Sobre¦About"></span></p>
+        <h2 class="i" data-i="Publicitária e <em>chata</em> com critério.¦An advertiser, <em>picky</em> on purpose."></h2>
+        <p class="i" data-i="Formada em Publicidade e Propaganda pela UNIFACS, em Salvador. Fundei e dirigi o Aurora Creative Studio, onde produzi kits de imprensa e campanhas de ativação para Smirnoff, Tanqueray e Johnnie Walker.¦I hold a degree in Advertising from UNIFACS in Salvador. I founded and ran Aurora Creative Studio, producing press kits and activation campaigns for Smirnoff, Tanqueray and Johnnie Walker."></p>
+        <p class="i" data-i="Em Lisboa, cofundei a De Além Mar e cuidei sozinha de toda a parte criativa. Português nativo, inglês fluente.¦In Lisbon, I co-founded De Além Mar and ran the whole creative side on my own. Native Portuguese, fluent English."></p>
+        <div class="skills" id="skills"></div>
+      </div>
+      <ol class="tl">
+        <li><span class="mono yr">2012 – 2016</span><h3>UNIFACS, Salvador</h3><p class="i" data-i="Bacharelado em Publicidade e Propaganda.¦Bachelor’s degree in Advertising."></p></li>
+        <li><span class="mono yr">2019 – 2023</span><h3>Aurora Creative Studio</h3><p class="i" data-i="Fundadora e diretora criativa. Kits de imprensa, ativações de marca e estratégia social para Smirnoff, Tanqueray e Johnnie Walker.¦Founder and creative director. Press kits, brand activations and social strategy for Smirnoff, Tanqueray and Johnnie Walker."></p></li>
+        <li><span class="mono yr">2023 – 2026</span><h3>De Além Mar, Lisboa</h3><p class="i" data-i="Cofundadora e diretora criativa. Fotografia, vídeo, design, texto e comunidade, toda a parte criativa da marca.¦Co-founder and creative director. Photography, video, design, copy and community: the whole creative side of the brand."></p></li>
+        <li><span class="mono yr i" data-i="2026 – hoje¦2026 – today"></span><h3 class="i" data-i="Freelancer, Lisboa¦Freelancer, Lisbon"></h3><p class="i" data-i="Conteúdo para redes e sites sob medida, em português e em inglês.¦Social content and custom websites, in Portuguese and English."></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contato">
+  <div class="wrap">
+    <p class="mono" style="color:var(--musgo-t);margin-bottom:18px">✧ <span class="i" style="display:inline-grid" data-i="Contato¦Contact"></span></p>
+    <h2 class="i" data-i="Manda o @ do seu Instagram e o que você quer <em>crescer</em>.¦Send me your Instagram handle and what you want to <em>grow</em>."></h2>
+    <p class="p i" data-i="Eu respondo e a gente conversa. Atendo em português ou em inglês.¦I’ll reply and we’ll talk. I work in Portuguese or English."></p>
+    <div class="cta">
+      <a class="btn solid i" href="https://www.upwork.com/freelancers/~0196a0df6bbc2527d6" data-i="Contratar no Upwork¦Hire on Upwork"></a>
+    </div>
+    
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>turista onde mora ✧</span>
+    <span>Lisboa, Portugal</span>
+    <span>© 2026 Fernanda Monteiro</span>
+  </div>
+</footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="fold pk" id="fold"></div>
+</div>
+
+<script>
+(function(){
+  /* ---------- helpers ---------- */
+  var KEY_L='nm-lang',KEY_P='nm-peek';
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function T(pt,en){return '<span lang="pt">'+pt+'</span><span lang="en">'+en+'</span>'}
+
+  document.querySelectorAll('[data-i]').forEach(function(el){
+    var p=el.getAttribute('data-i').split('¦');
+    el.classList.add('i');
+    el.innerHTML=T(p[0],p[1]);
+  });
+
+  /* ---------- covers (inline SVG, brand palette) ---------- */
+  var F='font-family="DM Mono, monospace"',S='font-family="Newsreader, Georgia, serif"',H='font-family="Reenie Beanie, cursive"';
+  var C={
+    grim:'<svg viewBox="0 0 400 260" role="img" aria-label="Mesa de corte com objetos"><defs><pattern id="mt" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#56644a" stroke-width="1.5"/></pattern></defs><rect width="400" height="260" fill="#3E4A33"/><rect width="400" height="260" fill="url(#mt)"/><g transform="rotate(-8 110 120)"><rect x="40" y="44" width="136" height="158" fill="var(--osso)"/><rect x="52" y="56" width="112" height="104" fill="var(--olive)"/><text x="108" y="184" text-anchor="middle" '+H+' font-size="21" fill="var(--paper-ink)">{{de perto|up close}}</text></g><g transform="rotate(6 285 80)"><rect x="216" y="46" width="138" height="58" fill="var(--osso)"/><text x="285" y="80" text-anchor="middle" '+F+' font-size="11" letter-spacing="3" fill="var(--paper-ink)">{{BILHETE|TICKET}} ✧</text></g><g transform="rotate(-4 300 180)"><rect x="262" y="122" width="80" height="120" rx="5" fill="var(--ox)" stroke="var(--osso)" stroke-width="2.5"/><text x="302" y="190" text-anchor="middle" font-size="32" fill="var(--osso)">✧</text><text x="302" y="228" text-anchor="middle" '+F+' font-size="9" letter-spacing="3" fill="var(--osso)">XVII</text></g></svg>',
+    innova:'<svg viewBox="0 0 400 260" role="img" aria-label="Innova Fit Pilates"><rect width="400" height="260" fill="#0E3E43"/><g fill="none" stroke-width="12"><circle cx="318" cy="130" r="124" stroke="#17696F" stroke-dasharray="320 800"/><circle cx="318" cy="130" r="88" stroke="#EE8A3C" stroke-dasharray="200 600"/><circle cx="318" cy="130" r="54" stroke="#8C7AB8" stroke-dasharray="120 400"/></g><text x="26" y="128" font-family="Arial Black, Helvetica, sans-serif" font-size="62" font-weight="800" fill="#F6F7F3" letter-spacing="-2">Innova</text><text x="30" y="188" font-family="Arial Black, Helvetica, sans-serif" font-size="58" font-style="italic" font-weight="800" fill="#EE8A3C" letter-spacing="-2">fit</text><text x="28" y="236" '+F+' font-size="11" letter-spacing="3" fill="#F6F7F3">PILATES · SALVADOR</text></svg>',
+    letds:'<svg viewBox="0 0 400 260" role="img" aria-label="Design system Letícia English Classes"><rect width="400" height="260" fill="#D8751B"/><g stroke="#FFFBF5" stroke-width="2"><rect x="24" y="22" width="34" height="26" fill="#99480A"/><rect x="62" y="22" width="34" height="26" fill="#D9A93B"/><rect x="100" y="22" width="34" height="26" fill="#B4BA8F"/><rect x="138" y="22" width="34" height="26" fill="#C2A493"/><rect x="176" y="22" width="34" height="26" fill="#FFFBF5"/><rect x="214" y="22" width="34" height="26" fill="#2B1D16"/></g><text x="24" y="126" font-family="Georgia, serif" font-size="78" fill="#FFFBF5" font-weight="500">Aa</text><text x="26" y="150" '+F+' font-size="10" letter-spacing="2" fill="#2B1D16">FRAUNCES · PUBLIC SANS</text><g transform="translate(318 104)" fill="#FFFBF5"><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(0)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(45)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(90)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(135)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(180)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(225)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(270)"/><ellipse cx="0" cy="-34" rx="12" ry="30" transform="rotate(315)"/><circle r="11" fill="#D9A93B"/></g><g transform="rotate(-2 200 196)"><rect x="-10" y="174" width="420" height="46" fill="#2B1D16" stroke="#D9A93B" stroke-width="2"/><text x="200" y="205" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="23" fill="#FFFBF5">Not just an English teacher</text></g><text x="24" y="246" '+F+' font-size="10" letter-spacing="3" fill="#2B1D16">LETÍCIA ENGLISH CLASSES</text></svg>',
+    meuds:'<svg viewBox="0 0 400 260" role="img" aria-label="Manual de marca e design system"><rect width="400" height="260" fill="var(--surface)"/><g stroke="var(--line)" stroke-width="1.5"><rect x="24" y="22" width="48" height="74" fill="#121110" stroke="var(--prata)"/><rect x="72" y="22" width="48" height="74" fill="#EDE6D8"/><rect x="120" y="22" width="48" height="74" fill="#4A5636"/><rect x="168" y="22" width="48" height="74" fill="#8C8547"/><rect x="216" y="22" width="48" height="74" fill="#5B1F24"/><rect x="264" y="22" width="48" height="74" fill="#9A4E35"/><rect x="312" y="22" width="48" height="74" fill="#B8BABD"/></g><text x="24" y="182" '+S+' font-size="84" font-style="italic" font-weight="700" fill="var(--osso)">Aa</text><text x="172" y="168" font-size="44" fill="var(--prata)">✧</text><text x="232" y="186" font-family="Pirata One, serif" font-size="58" fill="var(--osso)">Lisboa</text><text x="24" y="232" '+H+' font-size="30" fill="var(--terra-t)">{{uma farpa na margem|a dig in the margin}}</text><text x="376" y="246" text-anchor="end" '+F+' font-size="10" letter-spacing="3" fill="var(--muted)">DESIGN SYSTEM</text></svg>',
+    guia:'<svg viewBox="0 0 400 260" role="img" aria-label="Mapa de Lisboa em recortes"><rect width="400" height="260" fill="var(--musgo)"/><g stroke="var(--surface)" stroke-width="3" stroke-linejoin="round"><polygon points="18,40 150,16 196,86 96,132 24,112" fill="var(--olive)"/><polygon points="150,16 290,34 318,104 196,86" fill="var(--osso)"/><polygon points="290,34 384,52 376,128 318,104" fill="var(--olive)"/><polygon points="24,112 96,132 120,222 30,238" fill="var(--osso)"/><polygon points="96,132 196,86 318,104 262,208 120,222" fill="var(--olive)"/><polygon points="318,104 376,128 372,236 262,208" fill="var(--osso)"/></g><g fill="var(--surface)" font-size="20"><text x="84" y="76">✧</text><text x="222" y="62">✧</text><text x="330" y="94">✧</text><text x="56" y="184">✧</text><text x="196" y="168">✧</text><text x="312" y="188">✧</text></g><text x="18" y="252" '+F+' font-size="13" letter-spacing="2" fill="var(--osso)">{{44 LUGARES|44 PLACES}}</text></svg>',
+    leticia:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--ox)"/><text x="32" y="124" '+S+' font-size="92" font-style="italic" font-weight="600" fill="var(--osso)">Hello,</text><rect x="196" y="140" width="170" height="64" rx="32" fill="var(--osso)"/><polygon points="224,200 214,226 250,204" fill="var(--osso)"/><text x="281" y="182" text-anchor="middle" '+S+' font-size="34" font-weight="600" fill="var(--paper-ink)">Olá ✧</text><text x="32" y="236" '+F+' font-size="12" letter-spacing="3" fill="var(--prata)">ENGLISH · LETÍCIA ARAUJO</text></svg>',
+    tarot:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--surface)"/><g fill="var(--prata)" opacity=".55" font-size="14"><text x="28" y="40">✧</text><text x="350" y="60">✧</text><text x="60" y="226">✧</text><text x="338" y="214">✧</text><text x="372" y="140">✧</text><text x="22" y="140">✧</text></g><g transform="translate(200 130)"><rect x="-58" y="-92" width="116" height="184" rx="8" fill="var(--musgo)" transform="rotate(-16) translate(-30 6)"/><rect x="-58" y="-92" width="116" height="184" rx="8" fill="var(--ox)" transform="rotate(14) translate(34 4)"/><g transform="rotate(-3)"><rect x="-62" y="-98" width="124" height="196" rx="8" fill="var(--osso)"/><rect x="-54" y="-90" width="108" height="180" rx="5" fill="none" stroke="var(--paper-ink)" stroke-width="1.5"/><text y="-68" text-anchor="middle" '+F+' font-size="12" letter-spacing="3" fill="var(--paper-ink)">XVII</text><circle r="34" fill="none" stroke="var(--paper-ink)" stroke-width="1.5"/><text y="14" text-anchor="middle" font-size="46" fill="var(--paper-ink)">✧</text><text y="72" text-anchor="middle" '+F+' font-size="10.5" letter-spacing="2.5" fill="var(--paper-ink)">{{A ESTRELA|THE STAR}}</text></g></g></svg>',
+    brunch:'<svg viewBox="0 0 400 260"><defs><pattern id="st" width="40" height="10" patternUnits="userSpaceOnUse"><rect width="20" height="10" fill="var(--ox)"/><rect x="20" width="20" height="10" fill="var(--surface)"/></pattern></defs><rect width="400" height="260" fill="url(#st)"/><circle cx="130" cy="112" r="68" fill="var(--osso)"/><path d="M92 92h72v36a28 28 0 0 1-28 28h-16a28 28 0 0 1-28-28z" fill="none" stroke="var(--paper-ink)" stroke-width="5"/><path d="M164 100h12a12 12 0 0 1 0 24h-12" fill="none" stroke="var(--paper-ink)" stroke-width="5"/><g stroke="var(--paper-ink)" stroke-width="4" stroke-linecap="round"><path d="M114 60q-8-10 0-18"/><path d="M136 60q-8-10 0-18"/></g><g transform="rotate(-6 280 200)"><rect x="150" y="178" width="250" height="46" fill="var(--osso)"/><text x="275" y="211" text-anchor="middle" '+H+' font-size="24" fill="var(--paper-ink)">{{enquanto ainda existe|while it still exists}}</text></g><text x="22" y="244" '+F+' font-size="12" letter-spacing="3" fill="var(--osso)">CAFÉ COM TRETA</text></svg>',
+    pizza:'<svg viewBox="0 0 400 260"><defs><pattern id="ck" width="80" height="80" patternUnits="userSpaceOnUse"><rect width="80" height="80" fill="#1b1a18"/><rect width="40" height="40" fill="#2a2926"/><rect x="40" y="40" width="40" height="40" fill="#2a2926"/></pattern></defs><rect width="400" height="260" fill="url(#ck)"/><circle cx="196" cy="132" r="92" fill="var(--osso)"/><circle cx="196" cy="132" r="80" fill="var(--terra)"/><g stroke="var(--osso)" stroke-width="3"><path d="M196 52v160"/><path d="M116 132h160"/><path d="M139 75l114 114"/><path d="M253 75L139 189"/></g><g fill="var(--osso)"><circle cx="160" cy="98" r="9"/><circle cx="238" cy="104" r="9"/><circle cx="150" cy="168" r="9"/><circle cx="228" cy="172" r="9"/></g><g fill="var(--musgo)" stroke="var(--osso)" stroke-width="1.5"><ellipse cx="196" cy="100" rx="9" ry="5" transform="rotate(30 196 100)"/><ellipse cx="206" cy="150" rx="9" ry="5" transform="rotate(-30 206 150)"/></g><g transform="rotate(-9 318 70)"><rect x="262" y="48" width="112" height="40" fill="var(--musgo)" stroke="var(--osso)" stroke-width="2.5"/><text x="318" y="74" text-anchor="middle" '+F+' font-size="13" font-weight="500" letter-spacing="2" fill="var(--osso)">APROVADO ✧</text></g></svg>',
+    dam:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--terra)"/><text x="26" y="110" '+S+' font-size="104" font-weight="700" fill="var(--osso)" letter-spacing="-2">{{3 anos|3 years}}</text><g transform="translate(300 196)"><path d="M-64 0a64 52 0 0 1 128 0z" fill="var(--osso)"/><path d="M-64 0h128v14h-128z" fill="var(--osso)"/><g fill="var(--terra)"><circle cx="-54" cy="14" r="5"/><circle cx="-36" cy="14" r="5"/><circle cx="-18" cy="14" r="5"/><circle cx="0" cy="14" r="5"/><circle cx="18" cy="14" r="5"/><circle cx="36" cy="14" r="5"/><circle cx="54" cy="14" r="5"/></g><text x="0" y="-18" text-anchor="middle" font-size="30" fill="var(--terra)">✧</text></g><text x="26" y="150" '+F+' font-size="13" letter-spacing="3" fill="var(--osso)">DE ALÉM MAR</text><text x="26" y="172" '+F+' font-size="11" letter-spacing="3" fill="var(--osso)" opacity=".8">{{MARCA E REDES|BRAND AND SOCIAL}}</text></svg>',
+    bolos:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--olive)"/><g transform="translate(200 0)"><rect x="-62" y="150" width="124" height="52" rx="4" fill="var(--ox)"/><rect x="-50" y="108" width="100" height="46" rx="4" fill="var(--osso)"/><rect x="-38" y="70" width="76" height="42" rx="4" fill="var(--ox)"/><path d="M-62 150q15 14 31 0t31 0t31 0t31 0v-6h-124z" fill="var(--osso)"/><path d="M-38 70q10 12 19 0t19 0t19 0t19 0v-5h-76z" fill="var(--osso)"/><rect x="-2" y="40" width="4" height="26" fill="var(--paper-ink)"/><text y="38" text-anchor="middle" font-size="22" fill="var(--paper-ink)">✧</text></g><text x="24" y="52" '+F+' font-size="10" letter-spacing="2" fill="var(--paper-ink)">{{GUIA DE ENCOMENDAS|ORDERING GUIDE}}</text><text x="24" y="226" '+S+' font-size="54" font-weight="700" fill="var(--paper-ink)">11</text><text x="24" y="246" '+F+' font-size="11" letter-spacing="3" fill="var(--paper-ink)">{{RECHEIOS|FILLINGS}}</text><text x="340" y="226" '+F+' font-size="11" letter-spacing="3" fill="var(--paper-ink)" text-anchor="middle">WHATSAPP</text></svg>',
+    ketel:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--surface)"/><g transform="translate(36 22)"><rect x="40" y="0" width="30" height="46" fill="var(--prata)"/><path d="M34 46h42v22l14 20v118H20V88l14-20z" fill="var(--prata)"/><rect x="26" y="108" width="58" height="60" fill="var(--osso)"/><text x="55" y="146" text-anchor="middle" font-size="26" fill="var(--paper-ink)">✧</text></g><g transform="translate(150 120)"><rect width="200" height="112" fill="var(--musgo)"/><rect x="88" width="24" height="112" fill="var(--osso)"/><rect y="44" width="200" height="24" fill="var(--osso)"/></g><g fill="var(--osso)"><path d="M172 60h42l-5 46h-32z"/><path d="M236 60h42l-5 46h-32z"/></g><text x="150" y="40" '+F+' font-size="13" letter-spacing="3" fill="var(--osso)">KETEL MULE</text><text x="150" y="250" '+F+' font-size="11" letter-spacing="3" fill="var(--prata)">{{KIT DE QUARTO|IN-ROOM KIT}} ✧</text></svg>',
+    marreco:'<svg viewBox="0 0 400 260"><rect width="400" height="260" fill="var(--terra)"/><g fill="none" stroke="var(--osso)" stroke-width="3"><rect x="226" y="50" width="140" height="140" stroke-dasharray="10 7"/><path d="M226 50l140 140M366 50L226 190" stroke-width="1.5" opacity=".5"/></g><g transform="rotate(-18 130 130)"><rect x="40" y="96" width="180" height="64" rx="32" fill="var(--osso)"/><circle cx="76" cy="128" r="14" fill="var(--terra)"/><path d="M118 112v32M138 116v24M158 116v24M178 112v32" stroke="var(--terra)" stroke-width="3" stroke-linecap="round"/></g><text x="26" y="236" '+F+' font-size="14" letter-spacing="4" fill="var(--osso)">MARRECO BAR</text><text x="374" y="236" text-anchor="end" '+F+' font-size="11" letter-spacing="3" fill="var(--osso)" opacity=".85">SALVADOR ✧</text></svg>'
+  };
+
+  Object.keys(C).forEach(function(k){C[k]=C[k].replace('<svg ','<svg preserveAspectRatio="xMidYMid slice" ').replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,'<tspan class="pt">$1</tspan><tspan class="en">$2</tspan>')});
+
+  /* ---------- projects ---------- */
+  var CAT={
+    all:['Todos','All'],
+    redes:['Redes sociais','Social media'],
+    reels:['Reels','Reels'],
+    sites:['Sites','Websites'],
+    ativ:['Ativações','Activations'],
+    marca:['Identidade','Brand systems']
+  };
+  var P=[
+    {id:'grim',cat:'sites',tag:'SITE · 2026',
+     t:['Grimório de bolso: uma mesa que abre janelas','Pocket grimoire: a desk that opens windows'],
+     l:['Uma mesa de corte vista de cima, com objetos que abrem fotos, notas, favoritos e o guia.','A top-down cutting mat with objects that open photos, notes, favorites and the guide.'],
+     d:['Em vez de uma página de links comum, criei uma mesa de corte verde-musgo vista de cima, com objetos espalhados: uma polaroid, um bilhete, uma carta de tarot, um postal, um cartão e um caderno. Cada objeto abre uma janela: as fotos de Lisboa, o que eu publico e em que dias, como funcionam os vereditos (aprovado, depende, passo), meus favoritos de pizza, pastel de nata, açaí e cerveja, e o guia de Lisboa com 44 lugares, mapa por zonas e filtros. Tudo na identidade visual da marca, com fotografia, tipografia serifada, anotações à mão e papel colado.',
+        'Instead of an ordinary link page, I built a top-down moss-green cutting mat with objects scattered across it: a polaroid, a ticket, a tarot card, a postcard, a business card and a notebook. Each object opens a window: photos of Lisbon, what I post and when, how the verdicts work (approved, it depends, pass), my favorites for pizza, pastel de nata, açaí and beer, and the Lisbon guide with 44 places, a zone map and filters. All in the brand’s visual identity, with photography, serif type, handwritten notes and glued-on paper.'],
+     chips:[['Identidade visual','Visual identity'],['UX e UI','UX and UI'],['Redação publicitária','Copywriting'],['Interatividade','Interactivity'],['Claude','Claude']],
+     links:[['Abrir o Grimório ao vivo ↗','Open the live Grimoire ↗','https://nandamto.github.io']]},
+    {id:'innova',cat:'sites',tag:'SITE · SALVADOR',
+     t:['Innova Fit Pilates: site de um studio em Salvador','Innova Fit Pilates: website for a studio in Salvador'],
+     l:['Um quiz de três perguntas indica a aula e chama no WhatsApp com o resultado.','A three-question quiz recommends a class and opens WhatsApp with the result.'],
+     d:['Site para o Innova Fit Pilates, studio de pilates em Salvador, Bahia, com Roberta Perez e equipe. O título troca a palavra que descreve o jeito da aula (alegre, dinâmico, inovador), uma faixa em movimento reforça o tom leve e abas explicam o método clássico, o funcional e o online. O destaque é um quiz de três perguntas que indica a aula certa e abre o WhatsApp com o resultado já escrito na mensagem. O site traz ainda o studio, as perguntas frequentes e um botão para copiar o número. Paleta em petróleo, laranja, lilás e lima, nascida dos arcos do logo, com tema claro e escuro.',
+        'A website for Innova Fit Pilates, a pilates studio in Salvador, Bahia, run by Roberta Perez and her team. The headline cycles through words that describe the feel of the class (cheerful, dynamic, innovative), a moving ticker keeps the tone light and tabs explain the classic, functional and online methods. The highlight is a three-question quiz that recommends the right class and opens WhatsApp with the result already written in the message. The site also covers the studio, FAQs and a button to copy the phone number. Palette in teal, orange, lilac and lime, drawn from the logo’s arcs, with light and dark themes.'],
+     chips:[['Web design','Web design'],['UX e UI','UX and UI'],['Redação publicitária','Copywriting'],['Interatividade','Interactivity'],['Claude','Claude']],
+     links:[['Abrir o site ao vivo ↗','Open the live site ↗','https://claude.ai/artifact/Q1XrXiEAJUSbwnq7BAnfKi']]},
+    {id:'guia',cat:'sites',tag:'SITE · 2026',
+     t:['Guia interativo de Lisboa','Interactive Lisbon guide'],
+     l:['Site scrapbook com 44 lugares, mapa por zonas, filtros e busca.','A scrapbook-style site with 44 places, a zone map, filters and search.'],
+     d:['Sou criadora de conteúdo e faço resenhas de lugares em Lisboa. Precisava de um espaço para a minha marca além das redes sociais. Criei um site interativo no estilo scrapbook: um guia de Lisboa com 44 lugares, mapa clicável por zonas, filtros temáticos, busca e um sistema de classificação (aprovado, depende, não recomendado), além de uma seção de contato e um formulário para sugestões de lugares. Cuidei do conceito, da identidade visual, da redação e do desenvolvimento. O resultado é um site rápido e responsivo que reúne meu trabalho em um só lugar e dá às marcas um caminho claro para falar comigo.',
+        'I’m a content creator who reviews places in Lisbon, and I needed a home for my brand beyond social media. I built an interactive scrapbook-style site: a Lisbon guide with 44 places, a clickable zone map, themed filters, search and a rating system (approved, it depends, not recommended), plus a contact section and a form for place suggestions. I handled concept, visual identity, copywriting and development. The result is a fast, responsive site that puts my work in one place and gives brands a clear way to reach me.'],
+     chips:[['IA generativa','Generative AI'],['Claude','Claude'],['Redação publicitária','Copywriting'],['UX e UI','UX and UI'],['Identidade visual','Visual identity']],
+     links:[['Ver o guia dentro do Grimório ↗','See the guide inside the Grimoire ↗','https://nandamto.github.io/#grimorio']]},
+    {id:'leticia',cat:'sites',tag:'SITE · NOV 2026',
+     t:['Site para professora de inglês','Website for an English teacher'],
+     l:['Identidade, texto e site responsivo, no ar em um único dia.','Identity, copy and a responsive site, live in a single day.'],
+     d:['Letícia Araujo, professora de inglês independente, precisava de uma presença online profissional para divulgar as aulas e facilitar o contato de novos alunos. Projetei e desenvolvi um site personalizado e responsivo do zero, com identidade visual, redação e desenvolvimento. O resultado: um site rápido, otimizado para celular e inteiramente dela, pensado para transformar visitantes em alunos. Entrega completa em um único dia.',
+        'Letícia Araujo, an independent English teacher, needed a professional online presence to promote her classes and make it easy for new students to get in touch. I designed and built a custom, responsive site from scratch, covering visual identity, copywriting and development. The result is a fast, mobile-first site she fully owns, built to turn visitors into students. Delivered in a single day.'],
+     chips:[['Claude','Claude'],['Web design','Web design'],['Redação publicitária','Copywriting'],['UX e UI','UX and UI'],['IA generativa','Generative AI']],
+     links:[['Abrir o site ao vivo ↗','Open the live site ↗','https://leticiaaraujo-english.netlify.app']]},
+    {id:'letds',cat:'marca',tag:'DESIGN SYSTEM',
+     t:['Design system da Letícia English Classes','Letícia English Classes design system'],
+     l:['Cor, tipografia, voz e modelos de post para uma identidade quente de professora.','Color, type, voice and post templates for a warm teacher brand.'],
+     d:['Sistema de identidade para Letícia Araujo, professora de inglês: quente, solar e acolhedora, de quem ensina inglês como quem faz uma amiga nova. Reúne a ideia central (o slogan “Not just an English teacher”), a voz bilíngue (inglês no título, português na explicação), a paleta em laranja, mostarda, sálvia e argila com regras de contraste, a tipografia com Fraunces, Public Sans e Caveat, os recursos de marca (flor de oito pétalas, adesivo inclinado e faixa) e modelos de post de feed, story, capa de destaque e legenda, para montar peças rápido sem decidir tudo a cada vez.',
+        'An identity system for Letícia Araujo, an English teacher: warm, sunny and welcoming, the way you’d teach English to a new friend. It brings together the core idea (the tagline “Not just an English teacher”), the bilingual voice (English in titles, Portuguese in explanations), a palette of orange, mustard, sage and clay with contrast rules, typography in Fraunces, Public Sans and Caveat, brand assets (an eight-petal flower, a tilted sticker and a banner) and templates for feed posts, stories, highlight covers and captions, so pieces can be built fast without redeciding everything each time.'],
+     chips:[['Identidade visual','Visual identity'],['Design system','Design system'],['Tipografia','Typography'],['Voz da marca','Brand voice'],['Claude','Claude']],
+     links:[['Abrir o design system ↗','Open the design system ↗','https://claude.ai/artifact/HaWasrfadcjPLNFojDAKhU']]},
+    {id:'meuds',cat:'marca',tag:'DESIGN SYSTEM · MANUAL',
+     t:['Meu manual de marca e design system','My brand manual and design system'],
+     l:['Conceito, paleta, quatro fontes, símbolo, selos de veredito e tom de voz.','Concept, palette, four typefaces, symbol, verdict stamps and tone of voice.'],
+     d:['O sistema de identidade do meu perfil de conteúdo, em torno da ideia “turista onde mora”: olhar para a cidade como quem acabou de chegar, só que com critério. Define o posicionamento, quatro traços de personalidade, a paleta de outono (preto, off-white, musgo, oliva, oxblood, terracota e prata) com regras de proporção e contraste, quatro famílias tipográficas com função própria (Newsreader, Reenie Beanie, DM Mono e Pirata One), o símbolo ✧, os selos de veredito (aprovado, depende, passo), os destaques, o wordmark em seis versões e o tom de voz com a estrutura das legendas. Cada regra tem motivo e exemplo de uso.',
+        'The identity system for my content profile, built around the idea of “tourist where you live”: looking at the city as if you had just arrived, but with standards. It defines the positioning, four personality traits, an autumn palette (black, off-white, moss, olive, oxblood, terracotta and silver) with proportion and contrast rules, four typefaces with distinct roles (Newsreader, Reenie Beanie, DM Mono and Pirata One), the ✧ symbol, the verdict stamps (approved, it depends, pass), highlights, the wordmark in six versions, and the tone of voice with caption structure. Every rule comes with a reason and a usage example.'],
+     chips:[['Identidade visual','Visual identity'],['Design system','Design system'],['Tipografia','Typography'],['Voz da marca','Brand voice'],['Claude','Claude']],
+     links:[['Abrir o manual ↗','Open the manual ↗','https://claude.ai/artifact/BHHQN7FRYZpARbKpX1kTBV']]},
+    {id:'tarot',cat:'reels',tag:'REEL · 1080×1920',
+     t:['Reel de tarot animado: guia do pastel de nata','Animated tarot Reel: pastel de nata guide'],
+     l:['Uma carta de tarot embaralha sete pastelarias de Lisboa.','A tarot card shuffles through seven Lisbon pastelarias.'],
+     d:['Lista de pastel de nata tem em todo lugar, então transformei a escolha em jogo. Criei um Reel animado em 1080×1920 em que uma carta de tarot embaralha sete pastelarias de Lisboa, cada uma com seu arcano, uma frase, o bairro e uma dica escrita à mão. Quem assiste tira print do resultado e encontra o veredito na legenda. Cuidei de conceito, texto, identidade visual e animação, feito com Claude e entregue como design editável no Canva. Paleta em vinho, musgo e terracota, com grão de papel e verso de carta em azulejo.',
+        'Pastel de nata lists are everywhere, so I turned the choice into a game. I created an animated 1080×1920 Reel in which a tarot card shuffles through seven Lisbon pastelarias, each paired with a tarot arcana, a tagline, the neighborhood and a handwritten tip. The viewer screenshots the result and finds the verdict in the caption. I handled concept, copywriting, visual identity and animation, built with Claude and delivered as an editable Canva design. Palette in oxblood, moss and terracotta, with paper grain and an azulejo card back.'],
+     chips:[['Motion graphics','Motion graphics'],['Reels do Instagram','Instagram Reels'],['IA generativa','Generative AI'],['Design para redes','Social media design'],['Claude','Claude']]},
+    {id:'brunch',cat:'reels',tag:'REEL · 28 S',
+     t:['Reel de opinião: brunch vs. pastelarias tradicionais','Opinion Reel: brunch vs. traditional pastelarias'],
+     l:['28 segundos sobre a pastelaria da esquina que está fechando.','28 seconds on the corner pastelaria that’s closing down.'],
+     d:['As pastelarias de bairro de Lisboa estão fechando enquanto os brunches se multiplicam, e eu quis transformar isso em conversa. Para o meu perfil, criei um Reel vertical de 28 segundos (1080×1920) para a série de opinião Café com Treta. Cuidei de conceito, roteiro, ilustração, animação e edição: fundos listrados, adesivos de papel recortado e legendas à mão que levam a história do café como pausa até a pastelaria da esquina baixando as portas, e terminam com um convite para sentar no balcão enquanto ele ainda existe.',
+        'Lisbon’s neighborhood pastelarias are closing while brunch spots multiply, and I wanted to turn that into a conversation. For my content page, I created a 28-second vertical Reel (1080×1920) for my opinion series, Café com Treta. I handled concept, script, illustration, animation and edit: striped backgrounds, paper-cut stickers and handwritten captions that carry the story from coffee as a pause to the corner pastelaria shutting down, ending with a call to sit at the counter while it still exists.'],
+     chips:[['Motion graphics','Motion graphics'],['Reels do Instagram','Instagram Reels'],['Criação de conteúdo','Content creation'],['IA generativa','Generative AI']]},
+    {id:'pizza',cat:'redes',tag:'CARROSSEL · 7 SLIDES',
+     t:['Carrossel: guia de pizzas de Lisboa com vereditos honestos','Carousel: Lisbon pizza guide with honest verdicts'],
+     l:['Sete slides, cinco pizzarias e um veredito sem medo.','Seven slides, five pizzerias and a fearless verdict.'],
+     d:['Lisboa tem muita lista de pizza, mas pouca que diga onde não ir. Para o meu perfil, criei um carrossel de 7 slides avaliando cinco pizzarias com vereditos honestos: aprovado, tesouro ou não volto. Cuidei de conceito, texto e design: fotografia com grão de filme, tipografia serifada, anotações à mão e um layout scrapbook xadrez. Cada slide traz o bairro, os pratos de destaque e um comentário pessoal. O formato é consistente, fácil de salvar e funciona como modelo para a série.',
+        'Lisbon has plenty of pizza lists, but few say where not to go. For my content page, I created a 7-slide Instagram carousel reviewing five pizzerias with honest verdicts: approved, treasure or won’t return. I handled concept, copywriting and design: film-grain photography, serif typography, handwritten notes and a checkerboard scrapbook layout. Each slide covers the neighborhood, standout dishes and a personal comment. The format is consistent and easy to save, and it works as a template for the series.'],
+     chips:[['Design para redes','Social media design'],['Marketing no Instagram','Instagram marketing'],['Redação publicitária','Copywriting'],['Tipografia','Typography']]},
+    {id:'dam',cat:'redes',tag:'MARCA E REDES · 2023–26',
+     t:['De Além Mar: marca e redes sociais do zero','De Além Mar: brand and social media from zero'],
+     l:['Três anos cuidando sozinha de toda a parte criativa da marca.','Three years running the brand’s entire creative side on my own.'],
+     d:['A De Além Mar era uma padaria brasileira de empadas em Lisboa, cofundada com duas sócias. Durante três anos fui responsável por toda a marca e presença digital: planejamento de conteúdo, design gráfico, edição de vídeo, redação e gestão de comunidade, construindo uma identidade visual consistente do zero. Cada post tinha um propósito: o carrossel do Pãozinho Delícia, por exemplo, transformava o processo lento da fermentação na própria história, explicando por que o pão leva tempo, e fechava com uma chamada clara para encomendas antecipadas.',
+        'De Além Mar was a Brazilian empada bakery in Lisbon, co-founded with two business partners. For three years I was responsible for the whole brand and digital presence: content planning, graphic design, video editing, copywriting and community management, building a consistent visual identity from scratch. Every post had a purpose: the Pãozinho Delícia carousel, for instance, turned the slow fermentation process into the story itself, explaining why the bread takes time, and closed with a clear call to pre-order.'],
+     chips:[['Gestão de redes sociais','Social media management'],['Criação de conteúdo','Content creation'],['Design gráfico','Graphic design'],['Identidade visual','Visual identity']]},
+    {id:'bolos',cat:'redes',tag:'2 CARROSSÉIS',
+     t:['Bolos da Mónica: carrosséis para uma confeitaria','Bolos da Mónica: carousels for a cake shop'],
+     l:['Guia de encomendas e o bolo mais pedido, em um só sistema visual.','An ordering guide and the best-selling cake, in one visual system.'],
+     d:['Dois carrosséis de Instagram para a Bolos da Mónica, confeitaria artesanal em Lisboa. O primeiro é um guia passo a passo para encomendar: tamanhos e preços dos bolos, onze combinações de recheio e uma chamada clara para pedir na loja ou por WhatsApp. O segundo apresenta o bolo mais pedido da casa e as regras de encomenda, combinando fotos reais das camadas e da decoração com ícones ilustrados sob medida, tudo dentro de um sistema visual consistente.',
+        'Two Instagram carousels for Bolos da Mónica, an artisan cake shop in Lisbon. The first is a step-by-step ordering guide: cake sizes and prices, eleven filling combinations and a clear call to order in store or via WhatsApp. The second presents the shop’s best-selling cake and its ordering policies, pairing real photos of the layers and decoration with custom illustrated icons, all built around one consistent visual system.'],
+     chips:[['Conteúdo para redes','Social media content'],['Estratégia de conteúdo','Content strategy'],['Redação publicitária','Copywriting'],['Marketing no Instagram','Instagram marketing']]},
+    {id:'ketel',cat:'ativ',tag:'KIT DE IMPRENSA',
+     t:['Ketel One: kit de imprensa para quarto de hotel','Ketel One: in-room press kit'],
+     l:['Uma caixa no quarto com tudo para preparar um Ketel Mule.','A box in the room with everything to make a Ketel Mule.'],
+     d:['Kit de imprensa para quarto de hotel da Ketel One Vodka, criado para influenciadores em um evento de ativação da marca. Os convidados encontravam a caixa no quarto: uma garrafa de Ketel One, duas canecas biodegradáveis personalizadas com ilustrações de utensílios de coquetelaria, um cartão de boas-vindas e uma receita impressa de Ketel Mule. Tudo o que era preciso para preparar e compartilhar um drinque sem sair do quarto, com o texto da embalagem reforçando o foco em sustentabilidade da campanha.',
+        'An in-room press kit for Ketel One Vodka, created for influencers at a brand activation event. Guests found the box in their rooms: a bottle of Ketel One, two custom biodegradable mugs illustrated with cocktail tools, a welcome card and a printed Ketel Mule recipe. Everything needed to make and share a drink without leaving the room, with the packaging copy reinforcing the campaign’s sustainability focus.'],
+     chips:[['Direção criativa','Creative direction'],['Design de embalagem','Packaging design'],['Redação publicitária','Copywriting'],['Marketing de eventos','Event marketing']]},
+    {id:'marreco',cat:'ativ',tag:'KIT DE IMPRENSA · SALVADOR',
+     t:['Marreco Bar: kit de imprensa de lançamento','Marreco Bar: launch press kit'],
+     l:['Abridor de madeira gravado, em caixa cortada a laser e amarrada à mão.','An engraved wooden opener in a laser-cut, hand-tied box.'],
+     d:['Kit de imprensa para o lançamento do Marreco, um novo bar em Salvador, Bahia. Criei o conceito e selecionei todos os fornecedores locais da produção: uma caixa de presente entregue pessoalmente à imprensa e a convidados antes da noite de inauguração, com um abridor de garrafas de madeira gravado, feito só para o lançamento, dentro de uma caixa cortada a laser e amarrada à mão.',
+        'A press kit for the launch of Marreco, a new bar in Salvador, Bahia. I created the concept and sourced all the local suppliers for production: a gift box hand-delivered to press and selected guests before opening night, holding a custom engraved wooden bottle opener made exclusively for the launch, packed in a laser-cut, hand-tied box.'],
+     chips:[['Direção criativa','Creative direction'],['Identidade visual','Visual identity'],['Fornecimento de produtos','Product sourcing'],['Design de embalagem','Packaging design'],['Marketing de eventos','Event marketing']]}
+  ];
+  var TAGEN={pizza:'CAROUSEL · 7 SLIDES',dam:'BRAND AND SOCIAL · 2023–26',bolos:'2 CAROUSELS',ketel:'PRESS KIT',marreco:'PRESS KIT · SALVADOR'};
+  function tagH(p){var x=p.links?' · LINK ↗':'';return '<span class="i">'+T(p.tag+x,(TAGEN[p.id]||p.tag)+x)+'</span>'}
+  var ROT=[-1.2,1.6,-.8,1.1,-1.6,.9,-.6,1.4,-1.1,.8,-1.4,1.2,-.9];
+  function no(i){return 'Nº '+(i<9?'0':'')+(i+1)}
+
+  /* ---------- filters + grid ---------- */
+  var grid=document.getElementById('grid'),fil=document.getElementById('filters'),cur='all';
+  function counts(k){return k==='all'?P.length:P.filter(function(p){return p.cat===k}).length}
+  function drawFilters(){
+    fil.innerHTML=Object.keys(CAT).map(function(k){
+      return '<button type="button" class="chip" data-k="'+k+'" aria-pressed="'+(k===cur)+'"><span class="i">'+T(CAT[k][0],CAT[k][1])+'</span><small>'+counts(k)+'</small></button>';
+    }).join('');
+  }
+  function drawGrid(){
+    var list=P.map(function(p,i){return {p:p,i:i}}).filter(function(o){return cur==='all'||o.p.cat===cur});
+    grid.innerHTML=list.map(function(o,n){
+      var p=o.p,big=(cur==='all'&&o.i===0)?' big':'';
+      return '<article class="card pk'+big+'" data-id="'+p.id+'" style="--r:'+ROT[o.i]+'deg;--n:'+n+'">'+
+        '<div class="cover">'+C[p.id==='dam'?'dam':p.id]+'</div>'+
+        '<div class="meta mono"><span>'+no(o.i)+'</span>'+tagH(p)+'</div>'+
+        '<h3 class="i">'+T(p.t[0],p.t[1])+'</h3>'+
+        '<p class="line i">'+T(p.l[0],p.l[1])+'</p>'+
+        '<button type="button" class="more i" data-open="'+p.id+'">'+T('Ver ficha ✧','View project ✧')+'</button></article>';
+    }).join('');
+  }
+  fil.addEventListener('click',function(e){
+    var b=e.target.closest('.chip');if(!b)return;cur=b.getAttribute('data-k');drawFilters();drawGrid();
+  });
+  grid.addEventListener('click',function(e){
+    var c=e.target.closest('.card');if(!c)return;open(c.getAttribute('data-id'),c);
+  });
+
+  /* ---------- modal ---------- */
+  var ov=document.getElementById('ov'),fold=document.getElementById('fold'),opener=null;
+  function open(id,from){
+    var i=P.findIndex(function(p){return p.id===id}),p=P[i];opener=from;
+    fold.innerHTML='<button type="button" class="x i" id="m-x">'+T('Fechar ✕','Close ✕')+'</button>'+
+      '<div class="cover">'+C[p.id]+'</div>'+
+      '<div class="meta mono"><span>'+no(i)+'</span>'+tagH(p)+'</div>'+
+      '<h3 id="m-title" class="i">'+T(p.t[0],p.t[1])+'</h3>'+
+      '<p class="desc i">'+T(p.d[0],p.d[1])+'</p>'+
+      '<div class="chips">'+p.chips.map(function(c){return '<span class="i">'+T(c[0],c[1])+'</span>'}).join('')+'</div>'+
+      (p.links?'<div class="actions">'+p.links.map(function(l){return '<a class="btn solid i" href="'+l[2]+'">'+T(l[0],l[1])+'</a>'}).join('')+'</div>':'');
+    ov.classList.add('on');fold.scrollTop=0;
+    document.getElementById('m-x').focus();
+  }
+  function close(){ov.classList.remove('on');if(opener&&opener.focus)opener.focus()}
+  ov.addEventListener('click',function(e){if(e.target===ov||e.target.closest('#m-x'))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('on'))close()});
+
+  /* ---------- marquee + skills ---------- */
+  var B=['Smirnoff','Tanqueray','Johnnie Walker','Ketel One','De Além Mar','Bolos da Mónica','Marreco Bar','Letícia Araujo','Guia de Lisboa'];
+  var seq=B.map(function(b){return '<span>'+b+'</span><span>✧</span>'}).join('');
+  document.getElementById('track').innerHTML=seq+seq;
+  var SK=[['Redes sociais','Social media'],['Reels','Reels'],['Canva','Canva'],['CapCut','CapCut'],['Claude','Claude'],['Identidade visual','Visual identity'],['Redação publicitária','Copywriting'],['Fotografia de comida','Food photography'],['Edição de vídeo','Video editing'],['Sites sob medida','Custom websites'],['Gestão de comunidade','Community management']];
+  document.getElementById('skills').innerHTML=SK.map(function(s){return '<span class="i">'+T(s[0],s[1])+'</span>'}).join('');
+
+  /* ---------- language + hover peek ---------- */
+  var root=document.documentElement,bp=document.getElementById('b-pt'),be=document.getElementById('b-en'),bk=document.getElementById('b-peek'),ps=document.getElementById('peek-s');
+  function setLang(l){
+    root.setAttribute('data-lang',l);root.lang=(l==='pt'?'pt-BR':'en');
+    bp.setAttribute('aria-pressed',l==='pt');be.setAttribute('aria-pressed',l==='en');store(KEY_L,l);
+  }
+  function setPeek(on){root.setAttribute('data-peek',on?'on':'off');bk.setAttribute('aria-pressed',on);ps.textContent=on?'on':'off';store(KEY_P,on?'on':'off')}
+  bp.addEventListener('click',function(){setLang('pt')});
+  be.addEventListener('click',function(){setLang('en')});
+  bk.addEventListener('click',function(){setPeek(root.getAttribute('data-peek')!=='on')});
+  var sl=store(KEY_L);if(sl==='en'||sl==='pt')setLang(sl);
+  if(store(KEY_P)==='off')setPeek(false);
+
+  drawFilters();drawGrid();
+
+})();
+</script>
+</body>
+</html>
