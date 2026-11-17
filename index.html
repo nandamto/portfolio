@@ -562,7 +562,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   var BASE=window.NM_BASE||'';
   var MEDIA={
     pizza:{type:'slides',alt:['Slide 1: Onde comer pizza em Lisboa','Slide 2: La Bonne Pizza','Slide 3: Lupita','Slide 4: Nuvola','Slide 5: Retrogusto 84','Slide 6: Casa Al Parma','Slide 7: Jezzus Pizzaria'],files:[1,2,3,4,5,6,7].map(function(n){return 'pizza-'+n+'.jpg'}),cap:['O carrossel completo, 7 slides.','The full carousel, 7 slides.']},
-    dam:{type:'slides',alt:['Post de 25 de Abril e post sobre a etiqueta comestível','Carrossel Bora bater perna: eventos da semana','Carrossel O segredo do Paozinho Delícia'],files:['dam-1.jpg','dam-2.jpg','dam-3.jpg'],cap:['Posts e carrosséis criados para a marca.','Posts and carousels created for the brand.']},
+    dam:{type:'slides',alt:['Post de 25 de Abril e post sobre a etiqueta comestível','Carrossel Bora bater perna: eventos da semana','Carrossel O segredo do Paozinho Delícia'],files:['dam-1.jpg','dam-2.jpg','dam-3.jpg'],cap:['Posts e carrosséis criados para a marca.','Posts and carousels created for the brand.'],video:{file:'dam-empadas.mp4',poster:'dam-empadas-poster.jpg',cap:['Vídeo de bastidores: o preparo das empadas.','Behind-the-scenes video: making the empadas.']}},
     bolos:{type:'slides',alt:['Carrossel Bolos da Mónica: informações e valores','Carrossel Bolos da Mónica: recheios, encomenda e fotos'],files:['bolos-1.jpg','bolos-2.jpg'],cap:['Os dois carrosséis, com fotos reais e ícones feitos sob medida.','Both carousels, with real photos and custom icons.']},
     ketel:{type:'slides',alt:['Kit de imprensa Ketel One aberto e caixas fechadas'],files:['ketel-1.jpg'],cap:['O kit produzido.','The finished kit.']},
     marreco:{type:'slides',alt:['Caixa de MDF cortada a laser e abridores de madeira gravados'],files:['marreco-1.jpg'],cap:['A caixa e os abridores produzidos.','The box and the engraved openers.']},
@@ -576,6 +576,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     var h='<div class="media"><p class="mono cap i">'+T(m.cap[0],m.cap[1])+'</p>';
     if(m.type==='slides')h+='<div class="slides">'+m.files.map(function(f,k){return '<a href="'+BASE+f+'" target="_blank" rel="noopener"><img src="'+BASE+f+'" alt="'+m.alt[k]+'" loading="lazy"></a>'}).join('')+'</div>';
     else h+='<video controls playsinline preload="metadata" poster="'+BASE+m.poster+'" src="'+BASE+m.file+'"></video>';
+    if(m.video)h+='<p class="mono cap i" style="margin-top:16px">'+T(m.video.cap[0],m.video.cap[1])+'</p><video controls playsinline preload="metadata" poster="'+BASE+m.video.poster+'" src="'+BASE+m.video.file+'"></video>';
     return h+'</div>';
   }
   function open(id,from){
